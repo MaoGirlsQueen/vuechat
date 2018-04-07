@@ -7,7 +7,6 @@
 					<img src="@/assets/img/group-icon.png" alt="" width="100%" height="100%">
 				</div>
 				<div>聊天群</div>
-				<div class="right-icon"></div>
 			</div>
 			<div class="center" @click="goPageReplace('Robot')">
 				<div class="center-icon">
@@ -58,7 +57,7 @@ export default{
 		height: 100%;
 		.bottom-bar {
 			position: absolute;
-			bottom: 0;
+			bottom: 0px;
 			left: 0;
 			padding: 10px;
 			width: calc(100% - 24px);
@@ -66,6 +65,7 @@ export default{
 			display: flex;
 			border-top: 1px solid $gray;
 			justify-content: space-around;
+			align-items: center;
 			.left-icon, .center-icon, .right-icon{
 				width: 30px;
 				height: 30px;

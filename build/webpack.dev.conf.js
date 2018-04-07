@@ -22,7 +22,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
-    before() {
+    after() {
       const Server = require('../index_dev_server.js')
       Server.listen(3000)
     },

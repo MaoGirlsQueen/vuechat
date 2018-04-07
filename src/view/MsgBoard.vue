@@ -76,6 +76,7 @@ $white: #FFF;
   }
   .board-contain {
     height: calc(100% - 50px);
+    overflow-y: scroll;
     background: #F2F2F2;
     .item {
       background: #FFF;

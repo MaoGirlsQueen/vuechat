@@ -56,19 +56,20 @@ export default{
 		width: 100%;
 		height: 100%;
 		.bottom-bar {
+			font-size: 10px;
 			position: absolute;
 			bottom: 0px;
 			left: 0;
 			padding: 10px;
 			width: calc(100% - 24px);
-			height: 50px;
+			height: 25px;
 			display: flex;
 			border-top: 1px solid $gray;
 			justify-content: space-around;
 			align-items: center;
 			.left-icon, .center-icon, .right-icon{
-				width: 30px;
-				height: 30px;
+				width: 20px;
+				height: 20px;
 				margin: 0 auto;
 			}
 		}

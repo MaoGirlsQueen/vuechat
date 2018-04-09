@@ -1,31 +1,23 @@
-var express = require('express')
-var app=express()
-var http = require('http').Server(app)
 var app = require('express')()
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
 var multer = require('./util/multer.js')
 var cors = require('cors')
 var request = require('superagent')
-//cors跨域
-app.use(cors())
+
 //bodyParse Config
 var bodyParser = require('body-parser')
+
+//cors跨域
+app.use(cors())
 // parse application/json
 app.use(bodyParser.json())
-// 引包
-var mongoose = require('mongoose')
-// 创建一个数据库连接
-mongoose.connect('mongodb://127.0.0.1:27017/vuechat')
 
-var db = mongoose.connection;
-db.once('open', function (callback) {
-    console.log("数据库成功打开!")
-})
 //数据库model
 var User = require('./Model/User.js')
 var ChatMsg = require('./Model/ChatMsg.js')
 var LeaveMsg = require('./Model/LeaveMsg.js')
+
 // 获取用户Id
 function getuserId(){
   var result=''
@@ -232,7 +224,12 @@ io.on('connection', (socket) => {
   })
   // 机器人聊天
   socket.on('robot-msg', (msg) => {
-    getRobotMsg({userId: msg.userId, text: msg.text}, (robotmsg) => {
+    const robotParam = {
+      userId: msg.userId,
+      timeStamp: msg.timeStamp,
+      text: msg.text
+    }
+    getRobotMsg(robotParam, (robotmsg) => {
       socket.emit('robot-msg', robotmsg)
     })
   })

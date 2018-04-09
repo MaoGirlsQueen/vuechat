@@ -46,8 +46,8 @@ export default{
 	},
 	mounted() {
 		this.msgDOM = document.querySelector('.msg-content')
-		this.socket = io('http://localhost:3000')
-		// this.socket = io('http://www.chenleiming.com:3000')
+		// this.socket = io('http://localhost:3000')
+		this.socket = io('http://www.chenleiming.com:3000')
 		// 进入房间
 		const infoObj = {
 			userId: this.getUserinfo.userId,
@@ -98,6 +98,7 @@ export default{
 		submit() {
 			const MsgObj = {
 				roomId: this.roomId,
+				status: 'msg',
 				timeStamp: Date.parse(new Date()),
 				userId: this.getUserinfo.userId,
 				headPic: this.getUserinfo.headPic,
@@ -146,18 +147,18 @@ $white: #FFF;
 	width: 100%;
 	height: 100%;
 	.top {
-		height: 50px;
+		height: 35px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		background: $style;
 		.left-icon {
-			width: 35px;
-			height: 35px;
+			width: 25px;
+			height: 25px;
 			background: url("../assets/img/back.png") no-repeat center / 100%;
 		}
 		.title {
-			font-size: 20px;
+			font-size: 15px;
 			color: $white;
 		}
 		.right-icon {
@@ -166,36 +167,36 @@ $white: #FFF;
 		}
 	}
 	.msg-content {
-		height: calc(100% - 150px);
+		height: calc(100% - 90px);
 		overflow-y: scroll;
 	}
 	.bottom-input {
 		position: absolute;
 		width: 100%;
-		bottom: 50px;
+		bottom: 30px;
 		display: flex;
-		justify-content: space-around;
+		align-items: center;
 		textarea {
 			width: 80%;
-			height: 40px;
-			line-height: 40px;
-			font-size: 20px;
+			height: 25px;
+			line-height: 25px;
+			font-size: 15px;
 			border: none;
 		}
-		.btn-default {
+		.btn {
 			width: 18%;
-			height: 40px;
-			line-height:40px;
+			height: 25px;
+			line-height: 25px;
 			text-align: center;
-			border: 1px solid #ccc;
 			border-radius: 5px;
 		}
+		.btn-default {
+			@extend .btn;
+			color: #FFF;
+			background: #CCC;
+		}
 		.btn-active {
-			width: 18%;
-			height: 40px;
-			line-height: 40px;
-			text-align: center;
-			border-radius: 5px;
+			@extend .btn;
 			background: $style;
 			color: $white;
 		}
@@ -203,13 +204,14 @@ $white: #FFF;
 	.extra-fun {
 		position: absolute;
 		bottom: 0;
-		height: 50px;
+		height: 30px;
 		display: flex;
 		align-items: center;
 		.load-pic {
 			position: relative;
-			width: 3rem;
-			input {
+			left: 10px;
+			width: 30px;
+			input{
 				position: absolute;
 				top: 0;
 				left: 0;

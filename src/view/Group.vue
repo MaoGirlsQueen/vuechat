@@ -38,10 +38,10 @@ export default{
     return {
       configData: {
         position: {
-          top: '60px',
+          top: '50px',
           right: '10px'
         },
-        width: '40%',
+        width: '30%',
         list: [
           {text: '修改资料', action: this.updateUserInfo},
           {text: '更换主题', action: this.updateTheme},
@@ -84,26 +84,26 @@ export default{
   $gray: #F0F0F0;
   $white: #FFF;
   .top {
-    height: 50px;
+    height: 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: $darkblue;
     .head-pic {
-      width: 42px;
-      height: 42px;
+      width: 30px;
+      height: 30px;
       margin-left: 10px;
       img {
         border-radius: 50%;
       }
     }
     .title {
-      font-size: 20px;
+      font-size: 15spx;
       color: $white;
     }
     .right-icon {
-      width: 32px;
-      height: 32px;
+      width: 25px;
+      height: 25px;
       margin-right: 15px;
       background: url('../assets/img/set-icon.png') no-repeat center / 100%;
     }
@@ -118,10 +118,11 @@ export default{
         border-bottom: 1px solid $gray;
         padding: 0 20px;
         .left-icon{
-          width: 35px;
-          height: 35px;
+          width: 25px;
+          height: 25px;
         }
         span{
+          font-size: 15px;
           margin-left: 30px;
         }
       }

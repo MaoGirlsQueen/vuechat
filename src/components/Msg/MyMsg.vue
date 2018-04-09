@@ -4,6 +4,7 @@
       <img :src="msg.headPic" alt="headpic" width="100%" height="100%"/>
     </div>
     <span class="name" v-text="msg.nickname"></span>
+    <span class="time">{{msg.timeStamp|timeFilter}}</span>
     <div class="msg-text" v-if="msg.img">
       <img :src="msg.img" alt="" width="100%" height="100%">
     </div>
@@ -15,6 +16,13 @@
   export default{
     data() {
       return {}
+    },
+    filters: {
+      timeFilter(timeStamp) {
+        const DateTarget = new Date()
+        DateTarget.setTime(timeStamp)
+        return DateTarget.toLocaleString()
+      }
     },
     props: ['msg', 'index']
   }
@@ -30,30 +38,44 @@ $black: #000;
   .headpic {
     position: absolute;
     right:10px;
-    top:22px;
-    width: 56px;
-    height: 56px;
+    top:30px;
+    width: 45px;
+    height: 45px;
     img{
       border-radius: 50%;
     }
   }
   .name {
     position: absolute;
-    width: 100px;
+    top: 30px;
+    width: 80px;
     text-align: right;
-    right: 80px;
-    margin-top: 25px;
+    right: 65px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 10px;
+  }
+  .time {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 20px;
+    line-height: 20px;
+    top: 0px;
+    font-size: 10px;
+    color: #AAA
   }
   .msg-text {
+    display: inline-block;
     position: relative;
-    margin:50px 80px 10px 10px;
     background: $blue;
+    margin:55px 75px 20px 10px;
     padding: 10px;
     border-radius: 10px;
     color: $white;
+    text-align: right;
+    font-size: 15px;
   }
   .msg-text:after {
     content: '';

@@ -12,6 +12,7 @@
             <img :src="item.headPic" width="100%" height="100%">
           </div>
           <div class="username" v-text="item.nickname"></div>
+          <div class="time">{{item.timeStamp|timeFilter}}</div>
         </div>
         <div class="bottom" v-text="item.text"></div>
       </div>
@@ -29,6 +30,13 @@
       // 初始化isBack
       this.$router.isBack = false
       this.initData()
+    },
+    filters: {
+      timeFilter(timeStamp) {
+        const DateTarget = new Date()
+        DateTarget.setTime(timeStamp)
+        return DateTarget.toLocaleString()
+      }
     },
     methods: {
       goBack() {
@@ -53,29 +61,29 @@ $white: #FFF;
   width: 100%;
   height: 100%;
   .top-bar {
-    height: 50px;
+    height: 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: $blue;
     padding: 0 5px;
     .left-icon {
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       background: url("../assets/img/back.png") no-repeat center / 100%;
     }
     .title {
-      font-size: 20px;
+      font-size: 15px;
       color: $white;
     }
     .right-icon {
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
       background: url("../assets/img/edit-icon.png") no-repeat center / 100%;
     }
   }
   .board-contain {
-    height: calc(100% - 50px);
+    height: calc(100vh - 35px);
     overflow-y: scroll;
     background: #F2F2F2;
     .item {
@@ -86,27 +94,41 @@ $white: #FFF;
         height: 80px;
         .img {
           position: absolute;
-          top: 10px;
+          top: 30px;
           left: 10px;
-          width: 55px;
-          height: 55px;
+          width: 35px;
+          height: 35px;
           img{
             border-radius: 50%;
           }
         }
         .username {
           position: absolute;
-          top:15px;
-          left:80px;
-          width:30%;
-          height:25px;
+          top:30px;
+          left:60px;
+          font-size: 15px;
+          width:25%;
+          height:20px;
+          line-height: 20px;
           overflow: hidden;
           text-overflow:ellipsis;
           white-space: nowrap;
         }
+        .time {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          font-size: 12px;
+          height: 20px;
+          line-height: 20px;
+          text-align: left;
+          font-size: 13px;
+          color: #AAA
+        }
       }
       .bottom {
         padding: 10px 20px 30px 20px;
+        font-size: 15px;
       }
     }
   }

@@ -22,7 +22,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
-    after() {
+    before() {
+      // 引包
+      var mongoose = require('mongoose')
+      // 创建一个数据库连接
+      mongoose.connect('mongodb://127.0.0.1:27017/vuechat')
+      var db = mongoose.connection;
+      db.once('open', function (callback) {
+          console.log("数据库成功打开!")
+      })
+      
       const Server = require('../index_dev_server.js')
       Server.listen(3000)
     },

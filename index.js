@@ -181,7 +181,7 @@ function getRobotMsg(msg, callback) {
       const msgObj = {
         userId: 'robot',
         roomId: msg.roomId,
-        timeStamp: msg.timeStamp,
+        timeStamp: msg.timeStamp || Date.parse(new Date()),
         nickname: '小美',
         headPic: '/static/img/robot-headpic.jpg',
         text: resText.results[0].values.text
@@ -232,7 +232,12 @@ io.on('connection', (socket) => {
   })
   // 机器人聊天
   socket.on('robot-msg', (msg) => {
-    getRobotMsg({userId: msg.userId, text: msg.text}, (robotmsg) => {
+    const robotParam = {
+      userId: msg.userId,
+      timeStamp: msg.timeStamp,
+      text: msg.text
+    }
+    getRobotMsg(robotParam, (robotmsg) => {
       socket.emit('robot-msg', robotmsg)
     })
   })

@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="bottom-bar">
-      <input type="text" v-model="inputText"/>
+      <textarea v-model="inputText"></textarea>
       <div class="btn-default" v-if="inputText==''">发送</div>
       <div class="btn-active" v-else  @click="submit">发送</div>
     </div>
@@ -87,23 +87,21 @@ import OtherMsg from '@/components/Msg/OtherMsg'
   height: 100%;
   .msg-content {
     background: #F6F6F6;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 75px);
     overflow-y: scroll;
   }
   .bottom-bar {
-    height: 39px;
     display: flex;
-    input{
+    textarea {
       width: 80%;
-      height: 35px;
+      height: 25px;
+      font-size: 15px;
       border: none;
-      border-radius: 6px;
-      font-size: 22px;
     }
     .btn {
       width: 18%;
-      height: 35px;
-      line-height: 35px;
+      height: 25px;
+      line-height: 25px;
       text-align: center;
       border-radius: 3px;
       color: #FFF;

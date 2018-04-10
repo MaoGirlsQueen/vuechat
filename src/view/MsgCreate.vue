@@ -110,10 +110,10 @@ $bg: #FFF;
       line-height: 30px;
       margin-top: 20px;
       text-align: center;
-      border: 1px solid $m-bg;
+      background: $m-bg;
       border-radius: 6px;
       padding-right: 20px;
-      color: $m-bg;
+      color: #fff;
       .icon{
         position: absolute;
         top: 50%;

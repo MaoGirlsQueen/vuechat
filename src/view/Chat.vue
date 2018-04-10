@@ -49,8 +49,8 @@ export default{
 	},
 	mounted() {
 		this.msgDOM = document.querySelector('.msg-content')
-		this.socket = io('http://localhost:3000')
-		// this.socket = io('http://www.chenleiming.com:3000')
+		// this.socket = io('http://localhost:3000')
+		this.socket = io('http://www.chenleiming.com:3000')
 		// 进入房间
 		const infoObj = {
 			status: 'userstate',

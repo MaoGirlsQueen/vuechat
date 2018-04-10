@@ -4,6 +4,7 @@ http://www.chenleiming.com
 
 # 介绍
 本项目基于vue.js+socket.io+express+mongodb实现的聊天效果， 界面以及功能参考QQ，微信
+
 ## 技术栈
 * 前端： vue,vue-router,vuex,axios
 * 构建： webpack，vue-cli
@@ -20,6 +21,8 @@ http://www.chenleiming.com
 * 机器人聊天
 * 留言板
 * 聊天代码
+* 更换主题颜色
+* 进出聊天群提醒
 
 ## 功能演示
 
@@ -27,21 +30,23 @@ http://www.chenleiming.com
 
 ![image](https://github.com/clm960227/vuechat/blob/master/gif/gif1.gif)
 
-### 群聊和在群中与机器人聊天
-#### postscript: 群中与机器人聊天 @小美 和 消息 中间要有空格，否则会当成普通消息
+### 群聊
 
 ![image](https://github.com/clm960227/vuechat/blob/master/gif/gif2.gif)
 
-### 机器人聊天
+### 群聊中与机器人聊天
+#### postscript: 群中与机器人聊天 @小美 和 消息 中间要有空格，否则会当成普通消息
 
 ![image](https://github.com/clm960227/vuechat/blob/master/gif/gif3.gif)
 
-### 留言板
+### 机器人聊天
 
 ![image](https://github.com/clm960227/vuechat/blob/master/gif/gif4.gif)
 
-### 下拉列表
-#### postscript: 目前只有退出账号功能，后面会把另外两个功能实现
+### 留言板
 
 ![image](https://github.com/clm960227/vuechat/blob/master/gif/gif5.gif)
 
+### 更改主题颜色
+
+![image](https://github.com/clm960227/vuechat/blob/master/gif/gif6.gif)

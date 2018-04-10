@@ -87,19 +87,21 @@ import OtherMsg from '@/components/Msg/OtherMsg'
   height: 100%;
   .msg-content {
     background: #F6F6F6;
-    height: calc(100vh - 75px);
+    height: calc(100vh - 78px);
     overflow-y: scroll;
   }
   .bottom-bar {
     display: flex;
+    align-items: center;
     textarea {
       width: 80%;
       height: 25px;
+      line-height: 25px;
       font-size: 15px;
       border: none;
     }
     .btn {
-      width: 18%;
+      width: 20%;
       height: 25px;
       line-height: 25px;
       text-align: center;

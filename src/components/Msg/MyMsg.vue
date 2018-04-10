@@ -33,8 +33,8 @@ $white: #FFF;
 $black: #000;
 .msg {
   position: relative;
-  float: right;
-  clear: both;
+  display: flex;
+  flex-direction: row-reverse;
   .headpic {
     position: absolute;
     right:10px;
@@ -60,7 +60,9 @@ $black: #000;
     position: absolute;
     right: 10px;
     top: 0;
+    width: 200px;
     height: 20px;
+    text-align: right;
     line-height: 20px;
     top: 0px;
     font-size: 10px;

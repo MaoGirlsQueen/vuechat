@@ -22,7 +22,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
-    before() {
+    /*before() {
       // 引包
       var mongoose = require('mongoose')
       // 创建一个数据库连接
@@ -34,7 +34,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       
       const Server = require('../index_dev_server.js')
       Server.listen(3000)
-    },
+    },*/
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [

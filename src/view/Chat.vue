@@ -6,9 +6,12 @@
 			<div class="right-icon"></div>
 		</div>
 		<div class="msg-content">
-			<div v-for="(msg,index) in MsgList" :key="index">
-				<other-msg :msg="msg" :index="index" v-if="msg.userId!=getUserinfo.userId"></other-msg>
-				<my-msg :msg="msg" v-else></my-msg>
+			<div class="loop-msg" v-for="(msg,index) in MsgList" :key="index">
+				<other-msg :msg="msg" :index="index" v-if="msg.userId!=getUserinfo.userId&&msg.status!=='userstate'"></other-msg>
+				<my-msg :msg="msg" v-else-if="msg.userId==getUserinfo.userId&&msg.status!=='userstate'"></my-msg>
+				<div class="userstate" v-else-if="msg.status==='userstate'">
+					<div v-text="msg.text"></div>
+				</div>
 			</div>
 		</div>
 		<div class="bottom-input">
@@ -46,28 +49,35 @@ export default{
 	},
 	mounted() {
 		this.msgDOM = document.querySelector('.msg-content')
-		// this.socket = io('http://localhost:3000')
-		this.socket = io('http://www.chenleiming.com:3000')
+		this.socket = io('http://localhost:3000')
+		// this.socket = io('http://www.chenleiming.com:3000')
 		// 进入房间
 		const infoObj = {
-			userId: this.getUserinfo.userId,
+			status: 'userstate',
 			nickname: this.getUserinfo.nickname,
 			roomId: this.roomId
 		}
 		this.socket.emit('join-room', infoObj)
-		this.socket.on('join-room', (data) => {
-			console.log(data)
+		this.socket.on('join-room', (joinInfo) => {
+			this.MsgList.push(joinInfo)
+			this.$nextTick(() => {
+					this.msgDOM.scrollTop = this.msgDOM.scrollHeight
+			})
 		})
 		// 聊天
 		this.socket.on('chat-msg', (msg) => {
+			console.log(msg)
 			this.MsgList.push(msg)
 			this.$nextTick(() => {
 				this.msgDOM.scrollTop = this.msgDOM.scrollHeight
 			})
 		})
 		// 离开房间
-		this.socket.on('leave-room', (data) => {
-			console.log('离开房间')
+		this.socket.on('leave-room', (leaveInfo) => {
+			this.MsgList.push(leaveInfo)
+			this.$nextTick(() => {
+				this.msgDOM.scrollTop = this.msgDOM.scrollHeight
+			})
 		})
 	},
 	computed: {
@@ -89,6 +99,7 @@ export default{
 		goBack() {
 				// 离开房间
 				const infoObj = {
+					status: 'userstate',
 					nickname: this.getUserinfo.nickname,
 					roomId: this.roomId
 				}
@@ -98,8 +109,8 @@ export default{
 		submit() {
 			const MsgObj = {
 				roomId: this.roomId,
-				status: 'msg',
 				timeStamp: Date.parse(new Date()),
+				// status: 'usermsg',
 				userId: this.getUserinfo.userId,
 				headPic: this.getUserinfo.headPic,
 				nickname: this.getUserinfo.nickname,
@@ -147,7 +158,7 @@ $white: #FFF;
 	width: 100%;
 	height: 100%;
 	.top {
-		height: 35px;
+		height: 45px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -169,6 +180,22 @@ $white: #FFF;
 	.msg-content {
 		height: calc(100% - 90px);
 		overflow-y: scroll;
+		.loop-msg {
+			.userstate {
+				width: 100%;
+				margin-bottom: 20px;
+				div {
+					width: 35%;
+					height: 20px;
+					border-radius: 10px;
+					text-align: center;
+					font-size: 14px;
+					margin: 0 auto;
+					background: #ccc;
+					color: #fff;
+				}
+			}
+		}
 	}
 	.bottom-input {
 		position: absolute;
@@ -185,8 +212,8 @@ $white: #FFF;
 		}
 		.btn {
 			width: 18%;
-			height: 25px;
-			line-height: 25px;
+			height: 30px;
+			line-height: 30px;
 			text-align: center;
 			border-radius: 5px;
 		}

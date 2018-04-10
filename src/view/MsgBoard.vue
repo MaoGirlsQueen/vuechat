@@ -61,7 +61,7 @@ $white: #FFF;
   width: 100%;
   height: 100%;
   .top-bar {
-    height: 35px;
+    height: 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -103,7 +103,7 @@ $style: #000;
     height: 45px;
     border: none;
     border-bottom: 1px solid $style;
-    font-size: 23px;
+    font-size: 20px;
     color: $style;
     background: none;
   }
@@ -119,39 +119,39 @@ $style: #000;
   }
   input::-webkit-input-placeholder {
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
   }
   input::-moz-placeholder {   /* Mozilla Firefox 19+ */
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
   }
   input:-moz-placeholder {    /* Mozilla Firefox 4 to 18 */
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
   }
   input:-ms-input-placeholder {  /* Internet Explorer 10-11 */
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
   }
   .login {
     position: absolute;
-    top: 350px;
+    top: 330px;
     background: none;
     border: 1px solid $style;
     width: 80%;
-    height: 48px;
-    line-height: 48px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
     border-radius: 10px;
   }
   .bottom {
     position: absolute;
-    top: 420px;
+    top: 380px;
     width: 80%;
     height: 20px;
-    font-size: 18px;
+    font-size: 16px;
     color: $style;
     .register {
       float: right;

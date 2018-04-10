@@ -84,7 +84,7 @@ export default{
   $gray: #F0F0F0;
   $white: #FFF;
   .top {
-    height: 35px;
+    height: 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;

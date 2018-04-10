@@ -51,20 +51,20 @@ export default{
 <style lang="scss" scoped>
 	$white: #F5F2C7;
 	$darkblue: #F5F2C7;
-	$gray: #F0F0F0;
+	$gray: #ccc;
 	.contain {
 		width: 100%;
 		height: 100%;
 		.bottom-bar {
+			box-shadow: 0px -3px 3px #CCC;
 			font-size: 10px;
 			position: absolute;
 			bottom: 0px;
 			left: 0;
 			padding: 10px;
-			width: calc(100% - 24px);
+			width: calc(100vw - 20px);
 			height: 25px;
 			display: flex;
-			border-top: 1px solid $gray;
 			justify-content: space-around;
 			align-items: center;
 			.left-icon, .center-icon, .right-icon{

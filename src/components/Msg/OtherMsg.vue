@@ -32,8 +32,6 @@ $white: #FFF;
 $black: #000;
 .other-msg {
   position: relative;
-  float: left;
-  clear: both;
   .headpic {
     position: absolute;
     left: 10px;
@@ -61,6 +59,8 @@ $black: #000;
     position: absolute;
     left: 10px;
     top: 0px;
+    text-align: left;
+    width: 200px;
     height: 20px;
     line-height: 20px;
     font-size: 10px;

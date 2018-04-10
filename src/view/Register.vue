@@ -82,7 +82,7 @@ $style: #000;
     height: 45px;
     border: none;
     border-bottom: 1px solid $style;
-    font-size: 23px;
+    font-size: 20px;
     color: $style;
     background: none;
   }
@@ -103,19 +103,19 @@ $style: #000;
   }
   input::-webkit-input-placeholder {
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
   }
   input::-moz-placeholder{   /* Mozilla Firefox 19+ */
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
   }
   input:-moz-placeholder {    /* Mozilla Firefox 4 to 18 */
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
   }
   input:-ms-input-placeholder {  /* Internet Explorer 10-11 */
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
   }
   .sex {
     position: absolute;
@@ -124,7 +124,7 @@ $style: #000;
     display: flex;
     align-items: center;
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
     input[type="radio"] {
       display: none;
     }
@@ -146,24 +146,24 @@ $style: #000;
   }
   .register {
     position: absolute;
-    top: 400px;
+    top: 390px;
     background: none;
     border: 1px solid $style;
     width: 80%;
-    height: 48px;
-    line-height: 48px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     color: $style;
-    font-size: 23px;
+    font-size: 20px;
     opacity: .85;
     border-radius: 5px;
   }
   .back {
     position: absolute;
-    top: 470px;
+    top: 450px;
     width: 80%;
     height: 20px;
-    font-size: 18px;
+    font-size: 16px;
     color: $style;
     text-align: center;
   }

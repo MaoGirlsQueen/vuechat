@@ -67,7 +67,7 @@ $bg: #FFF;
 .content {
   background: $bg;
   .top-bar {
-    height: 35px;
+    height: 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;

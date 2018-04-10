@@ -18,7 +18,6 @@ var User = require('./Model/User.js')
 var ChatMsg = require('./Model/ChatMsg.js')
 var LeaveMsg = require('./Model/LeaveMsg.js')
 
-// 获取用户Id
 function getuserId(){
   var result=''
   for(var i=0; i<32; i++) {
@@ -173,7 +172,7 @@ function getRobotMsg(msg, callback) {
       const msgObj = {
         userId: 'robot',
         roomId: msg.roomId,
-        timeStamp: msg.timeStamp,
+        timeStamp: msg.timeStamp || Date.parse(new Date()),
         nickname: '小美',
         headPic: '/static/img/robot-headpic.jpg',
         text: resText.results[0].values.text
@@ -200,7 +199,11 @@ io.on('connection', (socket) => {
   socket.on('join-room', (info) => {
     // 添加到房间
     socket.join(info.roomId)
-    io.to(info.roomId).emit('join-room', info.nickname)
+    const joinInfo = {
+      status: info.status,
+      text: info.nickname + '加入了群聊'
+    }
+    socket.to(info.roomId).broadcast.emit('join-room', joinInfo)
   })
   // 群聊天
   socket.on('chat-msg', (msg) => {
@@ -236,7 +239,11 @@ io.on('connection', (socket) => {
   // 离开房间
   socket.on('leave-room', (info) => {
     socket.leave(info.roomId)
-    console.log(info.nickname + '离开了房间')
+    const leaveInfo = {
+      status: info.status,
+      text: info.nickname + '离开了群聊'
+    }
+    socket.to(info.roomId).broadcast.emit('leave-room', leaveInfo)
   })
 })
 module.exports = http

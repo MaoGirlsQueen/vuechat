@@ -13,9 +13,15 @@
 </template>
 
 <script type="text/javascript">
+import {mapGetters} from 'vuex'
   export default{
     data() {
       return {}
+    },
+    computed: {
+      ...mapGetters([
+        'getThemeColor'
+      ])
     },
     filters: {
       timeFilter(timeStamp) {

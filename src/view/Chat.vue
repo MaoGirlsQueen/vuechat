@@ -1,6 +1,6 @@
 <template>
 	<div class="contain">
-		<div class="top">
+		<div class="top" :style="'background:'+getThemeColor">
 			<div class="left-icon" @click="goBack()"></div>
 			<span class="title">聊天室(在线6人)</span>
 			<div class="right-icon"></div>
@@ -82,7 +82,8 @@ export default{
 	},
 	computed: {
 		...mapGetters([
-			'getUserinfo'
+			'getUserinfo',
+			'getThemeColor'
 		])
 	},
 	methods: {

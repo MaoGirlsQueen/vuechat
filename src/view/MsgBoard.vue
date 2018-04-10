@@ -1,6 +1,6 @@
 <template>
   <div class="contain">
-    <div class="top-bar">
+    <div class="top-bar" :style="'background:'+getThemeColor">
       <div class="left-icon" @click="goBack()"></div>
       <div class="title">留言板</div>
       <div class="right-icon" @click="editMsg()"></div>
@@ -20,6 +20,7 @@
   </div>
 </template>
 <script type="text/javascript">
+import {mapGetters} from 'vuex'
   export default {
     data() {
       return {
@@ -30,6 +31,11 @@
       // 初始化isBack
       this.$router.isBack = false
       this.initData()
+    },
+    computed: {
+      ...mapGetters([
+        'getThemeColor'
+      ])
     },
     filters: {
       timeFilter(timeStamp) {

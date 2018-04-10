@@ -5,6 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
+		// 主题颜色
+		themeColor: '',
 		// 存放用户信息
 		userInfo: {
 			userId: '',
@@ -23,6 +25,10 @@ export default new Vuex.Store({
 		}
 	},
 	getters: {
+		// 获取主题颜色
+		getThemeColor: state => {
+			return state.themeColor
+		},
 		// 获取登录用户信息
 		getUserinfo: state => {
 			return state.userInfo
@@ -46,6 +52,10 @@ export default new Vuex.Store({
 		// 设置聊天记录
 		setHistoryMsg(state, msgList) {
 			state.msgInfo = msgList
+		},
+		// 设置主题颜色
+		setThemeColor(state, color) {
+			state.themeColor = color
 		}
 	},
 	actions: {

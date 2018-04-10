@@ -1,14 +1,14 @@
 <template>
   <div class="content">
-    <div class="top-bar">
+    <div class="top-bar" :style="'background:'+getThemeColor">
       <div class="left-icon" @click="goBack()"></div>
       <div class="title">留言</div>
       <div class="right-icon">
       </div>
     </div>
     <div class="msg-content">
-      <textarea v-model="msgText"></textarea>
-      <div class="btn" @click="sendMsg()">
+      <textarea v-model="msgText" :style="'background:'+getThemeColor"></textarea>
+      <div class="btn" @click="sendMsg()" :style="'background:'+getThemeColor+';color:#fff;border:none;'">
         发送留言
         <div class="icon"><img src="" alt="" width="100%" height="100%"></div>
       </div>
@@ -30,7 +30,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getUserinfo'
+      'getUserinfo',
+      'getThemeColor'
       ])
   },
   methods: {

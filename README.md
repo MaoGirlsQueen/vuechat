@@ -12,6 +12,7 @@ http://www.chenleiming.com
 * 通讯： socket.io
 * 数据库： mongodb
 * css预处理器： sass
+* 代码检查： eslint
 
 ## 功能列表
 * 用户注册

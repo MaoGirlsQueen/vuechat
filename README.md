@@ -1,6 +1,6 @@
 # vue.js+socket.io+express+mongodb打造在线聊天
 # 在线地址观看
-http://www.chenleiming.com
+http://www.chenleiming.com/vuechat
 
 # 介绍
 本项目基于vue.js+socket.io+express+mongodb实现的聊天效果， 界面以及功能参考QQ，微信
